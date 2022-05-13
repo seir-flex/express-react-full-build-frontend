@@ -29,7 +29,7 @@ function People(props) {
     const loaded = () => {
         return props.people.map((person) => (
                 <div key={person._id} className='person'>
-                    <Link to={`/people/${person._id}`}>
+                    <Link to={`/${person._id}`}>
                         <h1>{person.name}</h1>
                         <img src={person.image} alt={person.name} />
                         <h3>{person.title}</h3>
