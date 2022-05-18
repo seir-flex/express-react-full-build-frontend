@@ -60,6 +60,8 @@ function Main(props) {
                 element={<People 
                 people={people}
                 createPeople={createPeople}
+                updatePeople={updatePeople}
+                deletePeople={deletePeople}
             />} />
             <Route 
                 path= '/:id'

@@ -34,6 +34,7 @@ function People(props) {
                         <img src={person.image} alt={person.name} />
                         <h3>{person.title}</h3>
                     </Link>
+                    <Link to={`/${person._id}`}>Delete This</Link>
                 </div>
             )
         )
