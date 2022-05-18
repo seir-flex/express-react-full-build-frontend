@@ -6,7 +6,7 @@ import Show from '../pages/Show';
 function Main(props) {
     const [people, setPeople] = useState(null)
 
-    const URL = 'https://react-build-backend22.herokuapp.com/people/';
+    const URL = 'https://people-backend-125.herokuapp.com/';
 
     const getPeople = () => {
         // fetching all people from our heroku URL
