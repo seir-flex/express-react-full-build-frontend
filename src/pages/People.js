@@ -10,10 +10,16 @@ function People(props) {
         title: ''
     })
 
+    const [newQuery, setNewQuery] = useState('')
+
     // handle change function for form
     const handleChange = (event) => {
-        console.log(event.target.value)
         setNewForm({...newForm, [event.target.name]: event.target.value})
+        console.log(newForm)
+    }
+
+    const handleQueryChange = (event) => {
+        setNewQuery(event.target.value)
     }
 
     const handleSubmit = (event) => {
@@ -26,14 +32,20 @@ function People(props) {
         })
     }
 
+    const handleQuerySubmit = (event) => {
+        event.preventDefault();
+        props.queryRunner(newQuery)
+        setNewQuery('')
+    }
+
     const loaded = () => {
         return props.people.map((person) => (
                 <div key={person._id} className='person'>
                     <Link to={`/${person._id}`}>
                         <h1>{person.name}</h1>
+                    </Link>
                         <img src={person.image} alt={person.name} />
                         <h3>{person.title}</h3>
-                    </Link>
                     <Link to={`/${person._id}`}>Delete This</Link>
                 </div>
             )
@@ -69,6 +81,15 @@ function People(props) {
                         onChange={handleChange}
                     />
                     <input type='submit' value='Create Person!' />
+                </form>
+                <form onSubmit={handleQuerySubmit} >
+                    <input
+                        type='text'
+                        value={newQuery}
+                        name='query'
+                        placeholder='query'
+                        onChange={handleQueryChange}
+                    />
                 </form>
                 {props.people ? loaded() : loading()}
             </section>

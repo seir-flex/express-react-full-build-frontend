@@ -6,11 +6,16 @@ import Show from '../pages/Show';
 function Main(props) {
     const [people, setPeople] = useState(null)
 
-    const URL = 'https://people-backend-125.herokuapp.com/people/';
+    const URL = 'http://localhost:4321/people/';
 
     const getPeople = () => {
         // fetching all people from our heroku URL
         fetch(URL)
+        .then(response => response.json())
+        .then(result => setPeople(result))
+    }
+    const queryRunner = async (search) => {
+        fetch(`${URL}?q=${search}`)
         .then(response => response.json())
         .then(result => setPeople(result))
     }
@@ -51,18 +56,17 @@ function Main(props) {
     }
 
     useEffect(() => getPeople(), [])
-    console.log(`People are ${people}`)
+    // console.log(`The first person is ${people[0].title}`)
 
   return (
     <main>
         <Routes>
-            <Route path='/' 
+            <Route exact path='/' 
                 element={<People 
-                people={people}
-                createPeople={createPeople}
-                updatePeople={updatePeople}
-                deletePeople={deletePeople}
-            />} />
+                    people={people}
+                    createPeople={createPeople}
+                    queryRunner={queryRunner}
+                />} />
             <Route 
                 path= '/:id'
                 element={<Show 
