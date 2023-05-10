@@ -9,7 +9,8 @@ import Person2 from "./pages/Person2";
 function App2() {
   const [people, setPeople] = useState(null);
 
-  const URL = "https://people-api-qn7s.onrender.com/people/";
+  // const URL = "https://people-api-qn7s.onrender.com/people/";
+  const URL = "http://localhost:8080/people/";
 
   //we have this function here because we want People2 to trigger it.
   const fetchPeople = async () => {

@@ -11,8 +11,10 @@ function People2(props) {
   useEffect(() => {
     console.log("UseEffect ran 🪝");
     // setTimeout(fetchPeople, 2000);
-    props.fetchPeople();
-  }, []);
+    if (!props.people) {
+      props.fetchPeople();
+    }
+  }, [props]);
 
   let peopleList;
 
