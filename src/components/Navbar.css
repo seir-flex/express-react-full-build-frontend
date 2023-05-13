@@ -1,0 +1,19 @@
+.navbar {
+  position: relative;
+  padding: 20px;
+  border: solid 2px gray;
+}
+.logo {
+  display: inline-block;
+  position: relative;
+}
+
+.nav-items {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+}
+
+.nav-items a {
+  margin-left: 5px;
+}

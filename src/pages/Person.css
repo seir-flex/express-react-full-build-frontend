@@ -1,0 +1,9 @@
+.profile-pic-container {
+  width: 60%;
+  max-width: 607px;
+}
+
+.profile-pic {
+  width: 100%;
+  border: solid 3px rgba(48, 48, 48, 0.634);
+}
